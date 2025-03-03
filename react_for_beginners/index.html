@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- react를 사용하기 위해 import(react js 설치) -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+
+    /*
+    createElement("a")의 a는 생성할 html 태그의 이름과 동일하도록
+    const h3 = React.createElement(
+      "h3",
+      { id: "title", onMouseEnter: () => console.log("mouse enter") },
+      "Hello, I'm a h3"
+    );
+
+    컴포넌트의 첫 글자는 반드시 대문자(JSX 함수사용 규칙)
+    "= () =>" === "function a()"
+    */
+    function Title() {
+      return (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+          Hello, I'm a title
+        </h3>
+      );
+    }
+
+    /*
+    const btn = React.createElement(
+      "button",
+      {
+        onClick: () => console.log("I'm clicked"),
+        style: { backgroundColor: "tomato" },
+      },
+      "Click me"
+    );
+
+    컴포넌트의 첫 글자는 반드시 대문자(JSX 함수사용 규칙)
+    */
+    const Button = () => (
+      <button
+        style={{ backgroundColor: "tomato" }}
+        onClick={() => console.log("I'm clicked")}
+      >
+        Click me
+      </button>
+    );
+
+    /*
+    배열([])을 이용해서 여러 개의 요소를 넣기
+    const container = React.createElement("div", null, [Title, Button]);
+    */
+
+    /* 컴포넌트의 첫 글자는 반드시 대문자(JSX 함수사용 규칙) */
+    const Container = () => (
+      <div>
+        <button>Hello</button>
+        <Title />
+        <Button />
+      </div>
+    );
+    ReactDOM.render(<Container />, root);
+  </script>
+</html>
