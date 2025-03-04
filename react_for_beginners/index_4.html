@@ -8,29 +8,42 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function Btn({ text, big }) {
+    function Btn({ text, changeValue }) {
       // console.log(props);
+      console.log(text, "was rendered");
       return (
         <button
+          onClick={changeValue}
           style={{
             backgroundColor: "tomato",
             color: "white",
             padding: "10px 20px",
             border: 0,
             borderRadius: "10px",
-            fontSize: big ? 18 : 16,
           }}
         >
           {text}
         </button>
       );
     }
+
+    /*
+    Btn의 버전을 기억
+    => 기억하는 Btn 생성을 통해 불필요한 rerender 막음! 똑똑한 리액트..
+    (부모 요소 state가 변하면, 해당 return 요소는 모두 rerender되는 특성을 기억)
+    */
+    const MemorizedBtn = React.memo(Btn);
+
     // Btn의 Props 이름은 내가 임의로 지정가능 (ex. banana="Save Changes")
     function App() {
+      const [value, setValue] = React.useState("Save Changes");
+      const changeValue = () => {
+        setValue("Revert Changes");
+      };
       return (
         <div>
-          <Btn text="Save Changes" big={true} />
-          <Btn text="Continue" big={false} />
+          <MemorizedBtn text={value} changeValue={changeValue} />
+          <MemorizedBtn text="Continue" />
         </div>
       );
     }
