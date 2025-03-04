@@ -36,6 +36,7 @@
     */
     const MemorizedBtn = React.memo(Btn);
 
+    // property의 자료형 / 필수여부 제한하기
     Btn.propTypes = {
       text: PropTypes.string.isRequired,
       fontSize: PropTypes.number,
