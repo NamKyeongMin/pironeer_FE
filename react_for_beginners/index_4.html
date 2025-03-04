@@ -4,13 +4,14 @@
     <div id="root"></div>
   </body>
   <!-- react를 사용하기 위해 import(react js 설치) -->
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function Btn({ text, changeValue }) {
+    function Btn({ text, changeValue, fontSize = 14 }) {
       // console.log(props);
-      console.log(text, "was rendered");
+      // console.log(text, "was rendered"); -> 불필요한 리렌더링 확인
       return (
         <button
           onClick={changeValue}
@@ -20,6 +21,7 @@
             padding: "10px 20px",
             border: 0,
             borderRadius: "10px",
+            fontSize,
           }}
         >
           {text}
@@ -34,6 +36,11 @@
     */
     const MemorizedBtn = React.memo(Btn);
 
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    };
+
     // Btn의 Props 이름은 내가 임의로 지정가능 (ex. banana="Save Changes")
     function App() {
       const [value, setValue] = React.useState("Save Changes");
@@ -44,6 +51,8 @@
         <div>
           <MemorizedBtn text={value} changeValue={changeValue} />
           <MemorizedBtn text="Continue" />
+          <Btn text="Save Changes" fontSize={18} />
+          <Btn fontSize={16} text="Continue" />
         </div>
       );
     }
