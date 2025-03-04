@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- react를 사용하기 위해 import(react js 설치) -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function Btn({ text, big }) {
+      // console.log(props);
+      return (
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: "10px",
+            fontSize: big ? 18 : 16,
+          }}
+        >
+          {text}
+        </button>
+      );
+    }
+    // Btn의 Props 이름은 내가 임의로 지정가능 (ex. banana="Save Changes")
+    function App() {
+      return (
+        <div>
+          <Btn text="Save Changes" big={true} />
+          <Btn text="Continue" big={false} />
+        </div>
+      );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
