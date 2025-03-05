@@ -17,7 +17,7 @@ function App() {
     console.log("I run when 'counter' changes.");
   }, [counter]);
   useEffect(() => {
-    console.log("I run when keyboard & counter change.");
+    console.log("I run when keyboard or counter change.");
   }, [keyword, counter]);
   return (
     <div className="App">
