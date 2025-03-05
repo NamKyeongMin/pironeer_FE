@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Movie from "./Movie";
+import Todo from "./Todo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Movie />);
+root.render(<Todo />);
