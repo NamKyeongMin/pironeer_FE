@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/pironeer_FE/static/js/main.4be7af95.js",
+    "main.css": "/pironeer_FE/static/css/main.5eff330d.css",
+    "main.js": "/pironeer_FE/static/js/main.81674e12.js",
     "index.html": "/pironeer_FE/index.html",
-    "main.4be7af95.js.map": "/pironeer_FE/static/js/main.4be7af95.js.map"
+    "main.5eff330d.css.map": "/pironeer_FE/static/css/main.5eff330d.css.map",
+    "main.81674e12.js.map": "/pironeer_FE/static/js/main.81674e12.js.map"
   },
   "entrypoints": [
-    "static/js/main.4be7af95.js"
+    "static/css/main.5eff330d.css",
+    "static/js/main.81674e12.js"
   ]
 }
