@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
+import stylesForDetail from "../styles/Detail.module.css";
 
 function Detail() {
   const [loading, setLoading] = useState(true);
@@ -24,12 +25,12 @@ function Detail() {
         <h1>Loading Movie Info...</h1>
       ) : (
         <div>
-          <h1>🎬 Movie Info 🍿</h1>
+          <h1 className={stylesForDetail.topTitle}>🎬 Movie Info 🍿</h1>
           <div>
             <Movie
               key={movieToFind.id}
               id={movieToFind.id}
-              movieImage={movieToFind.large_cover_image}
+              movieImage={movieToFind.medium_cover_image}
               title={movieToFind.title}
               summary={movieToFind.summary}
               genres={movieToFind.genres}
