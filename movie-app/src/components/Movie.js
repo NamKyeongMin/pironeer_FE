@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom"; // a 태그 대신 사용하여, (불필요한) 전체 페이지의 리로딩을 막음
 
 function Movie({ movieImage, title, summary, genres }) {
   return (
     <div>
       <img src={movieImage} alt={title} />
-      <h2>{title}</h2>
+      <h2>
+        <Link to="/movie">{title}</Link>
+      </h2>
       <p>{summary ? summary : "There is no summary! 🥲"}</p>
       <ul>
         {genres.map((genre) => (
