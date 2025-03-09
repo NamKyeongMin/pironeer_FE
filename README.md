@@ -17,8 +17,7 @@ OT / Web 및 FE 개요 / 템플릿 세팅 및 vercel 배포
 ### week2
 
 `InClass`
-
-- 바닐라 JS 문법 복습 / React Hook 학습 / TS로 TODO 페이지 구현하기
+바닐라 JS 문법 복습 / React Hook 학습 / TS로 TODO 페이지 구현하기
 
 `Assignment`
 
